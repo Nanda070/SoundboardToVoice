@@ -1,4 +1,9 @@
-#!/usr/bin/env node
+/*
+ * Vencord, a Discord client mod
+ * Copyright (c) 2026 Vendicated and contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 // Checks every patch of the plugin against Discord's current web bundle, without starting Discord.
 // The bundle is only read and parsed as text: it is never executed.
 //

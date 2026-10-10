@@ -1,3 +1,9 @@
+/*
+ * Vencord, a Discord client mod
+ * Copyright (c) 2026 Vendicated and contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 // Applies every patch to a short excerpt of the Discord code it targets (build 634304)
 // and checks the exact result. Catches mistakes in the regexes and replacement strings.
 // tools/check-patches.mjs is the complement: it checks that the excerpts still exist in a live bundle.

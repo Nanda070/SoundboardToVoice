@@ -1,3 +1,9 @@
+/*
+ * Vencord, a Discord client mod
+ * Copyright (c) 2026 Vendicated and contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 // Reimplements the bits of Vencord's patcher needed to try patches outside of Discord.
 
 const IDENTIFIER = String.raw`(?:[A-Za-z_$][\w$]*)`;
