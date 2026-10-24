@@ -74,12 +74,12 @@ export default definePlugin({
     async playSound(sound: SoundboardSound, channelId: string): Promise<void> {
         const context = mixer.getContext();
         if (context == null) {
-            showToast(
-                IS_DISCORD_DESKTOP && !settings.store.forceWebRTC
+            showToast({
+                text: IS_DISCORD_DESKTOP && !settings.store.forceWebRTC
                     ? "SoundboardToVoice needs its WebRTC engine setting enabled on Discord Desktop."
                     : "Join a voice channel before playing a sound.",
-                "failure",
-            );
+                variant: "critical",
+            });
             return;
         }
 
@@ -89,7 +89,7 @@ export default definePlugin({
 
             const result = mixer.play(buffer, toGain(sound.volume, settings.store.volume));
             if (result !== "started") {
-                showToast(result === "muted" ? "You are muted, so the sound was not sent." : "Join a voice channel before playing a sound.", "failure");
+                showToast({ text: result === "muted" ? "You are muted, so the sound was not sent." : "Join a voice channel before playing a sound.", variant: "critical" });
                 return;
             }
 
@@ -98,7 +98,7 @@ export default definePlugin({
             FluxDispatcher.dispatch({ type: "SOUNDBOARD_TRACK_USAGE", soundId: sound.soundId });
         } catch (error) {
             logger.error("Failed to play a soundboard sound through the microphone", error);
-            showToast("Couldn't play this sound through your microphone.", "failure");
+            showToast({ text: "Couldn't play this sound through your microphone.", variant: "critical" });
         }
     },
 
